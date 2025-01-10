@@ -24,7 +24,7 @@ sudo apt install nodejs
 ### Installing
 
 ```
-
+git clone git@github.com:leemm/imagemagick-watermark-nodejs.git
 ```
 
 ### Executing program
@@ -40,11 +40,11 @@ node watermark.js -source source/dir -backup backup/dir -watermark icon
 * arguments
 ```
 -source source/dir
-The directory containing the images you wish to apply a watermark to
+The directory containing the images where you wish to apply a watermark
 
 -backup backup/dir (optional)
 Where the original images should be backed up. This is optional and defaults to source/dir + '/backup'
 
 -watermark
-An icon e.g. genesis found in the icons. Add your own if want to.
+An icon e.g. genesis found in the icons. Add your own if want.
 ```
