@@ -1,0 +1,15 @@
+{
+  "name": "watermark",
+  "version": "1.0.0",
+  "description": "Simple script to apply watermarks with directory of images.",
+  "main": "watermark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "steam-binary-vdf": "^0.1.0"
+  }
+}

@@ -10,9 +10,9 @@
  * node watermark.js -source ~/Downloads/images -backup ~/Backup -watermark genesis
  */
 
-const fs = require('node:fs'),
-    path = require('node:path'),
-    { spawnSync } = require('node:child_process');
+import fs from 'node:fs';
+import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 
 const isDirectory = (path) => fs.lstatSync(path) ? fs.lstatSync(path).isDirectory() : false;
 const getArguments = () => {
