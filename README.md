@@ -35,9 +35,12 @@ git clone git@github.com:leemm/imagemagick-watermark-nodejs.git
 ```
 // Example
 node watermark.js -source source/dir -backup backup/dir -watermark icon
+
+// Example 2
+node watermark.js -source source/dir -backup backup/dir -watermark icon -include ./games.txt
 ```
 
-* arguments
+*arguments*
 ```
 -source source/dir
 The directory containing the images where you wish to apply a watermark
@@ -45,6 +48,13 @@ The directory containing the images where you wish to apply a watermark
 -backup backup/dir (optional)
 Where the original images should be backed up. This is optional and defaults to source/dir + '/backup'
 
--watermark
+-watermark icon
 An icon e.g. genesis found in the icons. Add your own if want.
+
+-include path/to/txtfile
+A txt file with a filename on each line. ONLY these files will be processed.
 ```
+
+### Icon set
+
+Icons in this set are from https://www.softicons.com/computer-icons/gaming-icon-set-by-deleket

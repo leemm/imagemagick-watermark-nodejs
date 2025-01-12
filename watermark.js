@@ -59,7 +59,7 @@ for (var file of fs.readdirSync(root)) {
 
             // composite -watermark 40% -gravity southwest -geometry +10 \( icons/genesis.png -resize 128 \) input.png output.png
             const watermarkPath = path.join(icons, watermark + (percent <= 50 ? '-white' : '') + '.png');
-            const convertParts = `-watermark 40% -gravity southwest -geometry +10 \( ${watermarkPath} -resize 128 \) ${source} ${tmppath}`.split(' ');
+            const convertParts = `-watermark 45% -gravity southwest -geometry +10+10 \( ${watermarkPath} -resize 128 \) ${source} ${tmppath}`.split(' ');
 
             console.log('composite', convertParts.join(' '));
             const cmd = spawnSync('composite', convertParts);
