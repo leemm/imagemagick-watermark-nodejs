@@ -39,7 +39,6 @@ if (!fs.existsSync(backup)){ fs.mkdirSync(backup); }
 for (var file of fs.readdirSync(root)) {
     const source = path.join(root, file);
     const dest = path.join(backup, file);
-    const percentParts = `${source} -gravity southwest -crop 200x200+0+0 +repage -format "%[fx:100*mean]" info:`.split(' ');
 
     if (!isDirectory(source)){
 
@@ -48,18 +47,11 @@ for (var file of fs.readdirSync(root)) {
 
         if (isValid){
 
-            // convert input.png -gravity southwest -crop 200x200+0+0 +repage -format "%[fx:100*mean]\%" info:
-            console.log('convert', percentParts.join(' '));
-            const dark = spawnSync('convert', percentParts);
-            const percent = parseFloat(dark.stdout.toString().replaceAll('"', ''), 10);
-            console.log('percent', percent);
-
             const ext = path.extname(source);
             const tmppath = path.join(root, `${filename}_temp${ext}`);
 
-            // composite -watermark 40% -gravity southwest -geometry +10 \( icons/genesis.png -resize 128 \) input.png output.png
-            const watermarkPath = path.join(icons, watermark + (percent <= 50 ? '-white' : '') + '.png');
-            const convertParts = `-watermark 45% -gravity southwest -geometry +10+10 \( ${watermarkPath} -resize 128 \) ${source} ${tmppath}`.split(' ');
+            // composite -gravity southwest -geometry +10+10 \( icons/genesis.png -resize 128 \) input.png output.png
+            const convertParts = `-gravity southwest -geometry +10+10 \( icons/${watermark}.png -resize 128 \) ${source} ${tmppath}`.split(' ');
 
             console.log('composite', convertParts.join(' '));
             const cmd = spawnSync('composite', convertParts);
